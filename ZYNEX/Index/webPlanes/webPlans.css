@@ -1,0 +1,768 @@
+/* Variables */
+:root {
+    --primaryColor: #2c71ff;
+    --secondaryColor: #F97316;
+    --titleColor: #E5E7EB;
+    /* Light gray for titles */
+    --subTitleColor: #D1D5DB;
+    /* Lighter gray for subtitles */
+    --textColor: #F9FAFB;
+    /* Almost white for text */
+    --buttonColor: #F97316;
+    --buttonHoverColor: #F9A826;
+    --CTA: #FF9637;
+    --CTAHover: #F87171;
+    --background: #39105C;
+    --backgroundSeccion: #5809F8;
+    --backgroundFooter: #000;
+}
+
+
+/* NORMALIZACIÓN:  */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    list-style: none;
+    text-decoration: none;
+    color: var(--textColor);
+    scroll-behavior: smooth;
+}
+
+*::selection {
+    background-color: #3B82F6;
+    color: #000;
+}
+
+body {
+    background-color: var(--background);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    /* Ancho de la barra */
+}
+
+
+header {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 3%;
+    background-color: transparent;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo negro con 50% de transparencia */
+    z-index: -1;
+    /* Asegura que el fondo esté detrás del contenido */
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 800;
+    /* este es el grueso de las letras */
+}
+
+.navlist {
+    display: flex;
+    align-items: center;
+    /* Esto sirve para que los elementos de la lista UL se pongan en linea*/
+}
+
+.navlist a {
+    margin-left: 60px;
+    /* es para separar las palabras */
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    /* este es un subrayado transparente */
+    transition: all .5s ease;
+    /* esto es para animar todas las caracteristicas del .navlist a */
+}
+
+.navlist .theLi:hover {
+    border-bottom: 2px solid #fff;
+    /* este es un subrayado blanco que aparecerá cuando hacemos estamos encima con el mouse */
+}
+
+#contactButton {
+    background-color: var(--buttonColor);
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: white;
+    transition: all .5s ease;
+}
+
+#contactButton:hover {
+    background-color: var(--buttonHoverColor);
+}
+
+#menu-icon {
+    display: none;
+    /* lo pongo en none para que solo se vea cuando la página esté colapsada de forma horizontal */
+}
+
+#menu-icon {
+    font-size: 35px;
+    z-index: 101;
+    /* para que este sobre el header */
+    cursor: pointer;
+    /* para que aparezca la manito cuando ponemos el mouse encima */
+    display: none;
+}
+
+#menu-toggle {
+    display: none;
+    /* nunca quiero que se vea el checkbox*/
+}
+
+.menu-icon-action {
+    display: none;
+    /* para que no se le pueda hacer click*/
+}
+
+/* Hero */
+
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 3%;
+    flex: 1;
+    margin-top: 5%;
+    /* Asegura que el contenido principal ocupe el espacio disponible */
+}
+
+.hero {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heroContent img {
+    width: auto;
+    height: 600px;
+    max-width: 100%;
+}
+
+.heroText {
+    position: absolute;
+    color: var(--titleColor);
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    text-align: left;
+    left: 5%;
+    top: 10%;
+}
+
+.heroText h1 {
+    font-size: 60px;
+    margin-bottom: 2rem;
+}
+
+.heroText p {
+    font-size: 20px;
+    font-weight: 400;
+    width: 20%;
+    line-height: 1.5em;
+}
+
+/* Plans section */
+
+.webPlans {
+    width: 80%;
+    margin: auto;
+}
+
+.containerPlans {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5% 3%;
+}
+
+.planCard {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.planText {
+    margin-bottom: 1rem;
+}
+
+.planText h2 {
+    color: var(--primaryColor);
+    font-size: 30px;
+}
+
+.planText span {
+    color: var(--primaryColor);
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.price {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.price span {
+    color: var(--primaryColor);
+}
+
+.finalPrice {
+    align-self: self-end;
+    padding-bottom: 20px;
+}
+
+.price p {
+    font-size: 70px;
+    font-weight: 700;
+    color: var(--primaryColor);
+}
+
+.liWeb {
+    color: var(--primaryColor);
+    text-align: left;
+    margin-bottom: 1.5em;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.liWeb i {
+    color: var(--primaryColor);
+    margin-right: 1rem;
+}
+
+#planP {
+    transform: scale(1.1);
+    background: linear-gradient(180deg, #2c71ff 0%, #e100ff 100%);
+    color: #fff;
+}
+
+#planP .price p,
+#planP .price .signoPeso,
+#planP .price .finalPrice,
+#planP .planText h2,
+#planP .planText span,
+#planP .listWeb,
+#planP .liWeb {
+    color: white;
+}
+
+#planP .ri-check-line {
+    color: white;
+}
+
+/* Beneficts Section */
+
+.benefictsWeb {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    flex-direction: column;
+    padding: 5% 3%;
+}
+
+.benefictsWeb h2 {
+    font-size: 48px;
+    margin-bottom: 2rem;
+    color: #000;
+}
+
+h2 b {
+    color: #2c71ff;
+}
+
+.containerBeneCards {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.beneCards {
+    max-width: 346px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1% 3%;
+}
+
+.beneCards img {
+    width: 240px;
+    margin-bottom: 10px;
+}
+
+.beneCards h3 {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.beneCards p {
+    font-size: 16px;
+    text-align: center;
+    color: #000;
+}
+
+/* Learning */
+
+.learn {
+    width: 100%;
+    height: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+    padding: 5% 8%;
+}
+
+.learn img {
+    max-width: 500px;
+    width: 80%;
+}
+
+.learnText {
+    width: 100%;
+    padding: 1%;
+}
+
+.learnText h2 {
+    font-size: 48px;
+    text-align: left;
+    margin-bottom: 2rem;
+    color: #000;
+}
+
+.learnText p {
+    font-size: 18px;
+    text-align: left;
+    width: 70%;
+    line-height: 1.5em;
+    color: #000;
+}
+
+/* Contacto */
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: white;
+    margin: 40px auto;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.contact {
+    width: 100%;
+    background-color: #255dce;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 5% 8%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.conText {
+    width: 80%;
+    margin: auto;
+}
+
+.conText h2 {
+    font-size: 48px;
+    margin-bottom: 1rem;
+}
+
+.conText h3 {
+    font-size: 23px;
+}
+
+.formContact {
+    max-width: 80%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+
+/* Quita el borde por defecto de fieldset y añade separación */
+.formContact fieldset {
+    border: none;
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+/* Estiliza la leyenda para que resalte */
+.formContact legend {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Los labels se muestran en bloque para mejor alineación */
+.formContact label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* Estilo general para inputs, select y textarea */
+.formContact input[type="text"],
+.formContact input[type="email"],
+.formContact select,
+.formContact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.formContact option {
+    color: #000;
+}
+
+/* Permite ajustar el textarea verticalmente */
+.formContact textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Opcional: Cambia el color del borde al enfocar los elementos interactivos */
+.formContact input[type="text"]:focus,
+.formContact input[type="email"]:focus,
+.formContact select:focus,
+.formContact textarea:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+
+
+/* Footer */
+
+footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    justify-items: center;
+    text-align: center;
+    background-color: var(--backgroundFooter);
+    margin-top: auto;
+    /* Empuja el footer al final de la página */
+}
+
+.newsletter {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+
+#footerTxt {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.beneficts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    text-align: left;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.newsletterBenefit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.newsletterBenefit .newsletterItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.beneficts svg {
+    height: 2rem;
+    width: 2rem;
+    flex-shrink: 0;
+    color: var(--primaryColor);
+}
+
+.newsletterBenefit .newsletterItem span {
+    font-weight: 500;
+    color: #555;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* From Uiverse.io by mrhyddenn */
+.formGroup {
+    position: relative;
+    padding: 20px 0 0;
+    width: 100%;
+    max-width: 180px;
+}
+
+.formField {
+    font-family: inherit;
+    max-width: 500px;
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 17px;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.formField::placeholder {
+    color: transparent;
+}
+
+.formField:placeholder-shown~.formLabel {
+    font-size: 17px;
+    cursor: text;
+    top: 20px;
+}
+
+.formLabel {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #9b9b9b;
+    pointer-events: none;
+}
+
+.formField:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #116399, #38caef);
+    border-image-slice: 1;
+}
+
+.formField:focus~.formLabel {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #38caef;
+    font-weight: 700;
+}
+
+/* reset input */
+.formField:required,
+.formField:invalid {
+    box-shadow: none;
+}
+
+#submitButton {
+    background-color: var(--buttonColor);
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: white;
+    transition: all .5s ease;
+    width: 300px;
+}
+
+#submitButton:hover {
+    background-color: var(--buttonHoverColor);
+    cursor: pointer;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: white;
+    margin: 40px auto;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.footerLinks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    margin: auto;
+}
+
+.footerArticleOne {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-right: auto;
+    padding: 2rem;
+}
+
+.footerArticleOne p {
+    font-size: 1rem;
+    color: #fff;
+    text-align: left;
+}
+
+.footerArticleOne .logoTxt {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--titleColor);
+    display: flex;
+    align-items: center;
+}
+
+.logoTxt img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footerRedLinks {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 10px;
+}
+
+.footerArticleTwo {
+    width: 100%;
+    margin-right: auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footerArticleTwoUl {
+    text-align: left;
+}
+
+.footerArticleTwoUl h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--titleColor);
+}
+
+.footerArticleTwoUl li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #fff;
+    transition: all .5s ease;
+}
+
+.footerArticleTwoUl li:hover {
+    color: var(--CTA);
+    transform: translateX(5px);
+}
+
+.footerCopyRight {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+
+.iconsFooter {
+    display: block;
+    margin: 26px 0;
+    font-size: 2rem;
+    transition: all 0.5s ease;
+}
+
+.iconsFooter:hover {
+    color: var(--CTA);
+    transform: translateY(-5px);
+}
